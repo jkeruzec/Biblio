@@ -3,5 +3,6 @@ nbproject
 .~lock.*
 .DS_Store
 .idea
+.settings
 composer.lock
 /vendor
