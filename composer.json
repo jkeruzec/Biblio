@@ -1,0 +1,15 @@
+{
+
+	"name": "Biblio/Biblio",
+	"description": "Bibliotheque physique de media",
+	"type": "application",
+	"require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "zendframework/zendframework": "2.2.*@dev",
+        "doctrine/mongodb" : "1.0.0-BETA1",
+		"doctrine/mongodb-odm" : "1.0.0-beta5",
+        "phpunit/phpunit" : "3.7"
+    }
+}  
