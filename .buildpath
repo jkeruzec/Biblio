@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry excluding=".git/|vendor/|public/|data/|config/|.settings/|module/|module/Application/src|module/Application/src/" kind="src" path=""/>
-	<buildpathentry kind="src" path="module/Application/src"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
-	<buildpathentry kind="lib" path="./vendor/zendframework/zendframework/library/Zend"/>
-	<buildpathentry kind="lib" path="./vendor/phpunit/phpunit/PHPUnit"/>
-	<buildpathentry kind="lib" path="./vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB"/>
+	<buildpathentry excluding=".git/|vendor/|public/|data/|config/|.settings/|module/|module/BiblioModule/src|module/BiblioModule/test|module/BiblioModule/src/|module/BiblioModule/test/" kind="src" path=""/>
+	<buildpathentry kind="lib" path="vendor/zendframework/zendframework/library/Zend"/>
+	<buildpathentry kind="src" path="module/BiblioModule/test"/>
+	<buildpathentry kind="lib" path="vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB"/>
+	<buildpathentry kind="src" path="module/BiblioModule/src"/>
+	<buildpathentry kind="lib" path="vendor/phpunit/phpunit/PHPUnit"/>
 </buildpath>
