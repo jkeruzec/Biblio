@@ -1,5 +1,5 @@
 <?php
-namespace Biblio;
+namespace BiblioModule;
 
 use Biblio\Model\BiblioTable;
 use Biblio\Model\Biblio;
@@ -7,9 +7,19 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Log\Logger;
 use Zend\Log\Writer\Stream;
+use Zend\Mvc\ModuleRouteListener;
+use Zend\Mvc\MvcEvent;
 
 
 class Module {
+	
+	public function onBootstrap(MvcEvent $e)
+	{
+		$e->getApplication()->getServiceManager()->get('translator');
+		$eventManager        = $e->getApplication()->getEventManager();
+		$moduleRouteListener = new ModuleRouteListener();
+		$moduleRouteListener->attach($eventManager);
+	}
 	
 	public function getAutoloaderConfig()  
 	{
