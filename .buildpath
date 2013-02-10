@@ -3,4 +3,7 @@
 	<buildpathentry excluding=".git/|vendor/|public/|data/|config/|.settings/|module/|module/Application/src|module/Application/src/" kind="src" path=""/>
 	<buildpathentry kind="src" path="module/Application/src"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry kind="lib" path="./vendor/zendframework/zendframework/library/Zend"/>
+	<buildpathentry kind="lib" path="./vendor/phpunit/phpunit/PHPUnit"/>
+	<buildpathentry kind="lib" path="./vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB"/>
 </buildpath>
