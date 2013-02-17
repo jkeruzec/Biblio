@@ -2,8 +2,8 @@
 return array (
 		'controllers' => array (
 				'invokables' => array (
-						'Biblio\Controller\Biblio' => 'Biblio\Controller\BiblioController',
-						'Biblio\Controller\Index' => 'Biblio\Controller\IndexController',
+						'Biblio\Controller\Biblio' => 'BiblioModule\Controller\BiblioController',
+						'Biblio\Controller\Index' => 'BiblioModule\Controller\IndexController',
 				),
 		),
 		'router' => array (
@@ -57,7 +57,7 @@ return array (
 				'exception_template' => 'error/index',
 				'template_map' => array(
 						'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
-						'biblio/index/index' => __DIR__ . '/../view/biblio/biblio/index.phtml',
+						'biblio/index/index' => __DIR__ . '/../view/BiblioModule/BiblioModule/index.phtml',
 						'error/404' => __DIR__ . '/../view/error/404.phtml',
 						'error/index' => __DIR__ . '/../view/error/index.phtml',
 				),

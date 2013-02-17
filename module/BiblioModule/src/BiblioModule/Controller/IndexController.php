@@ -7,7 +7,7 @@
 * @license http://framework.zend.com/license/new-bsd New BSD License
 */
 
-namespace Biblio\Controller;
+namespace BiblioModule\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
