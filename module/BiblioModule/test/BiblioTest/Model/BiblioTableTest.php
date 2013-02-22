@@ -1,8 +1,8 @@
 <?php
 namespace BiblioTest\Model;
 
-use Biblio\Model\BiblioTable;
-use Biblio\Model\Biblio;
+use BiblioModule\Model\BiblioTable;
+use BiblioModule\Model\Biblio;
 use Zend\Db\ResultSet\ResultSet;
 use PHPUnit_Framework_TestCase;
 

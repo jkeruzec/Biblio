@@ -1,7 +1,7 @@
 <?php
 namespace BiblioTest\Model;
 
-use Biblio\Model\Biblio;
+use BiblioModule\Model\Biblio;
 use PHPUnit_Framework_TestCase;
 
 class BiblioTest extends PHPUnit_Framework_TestCase {

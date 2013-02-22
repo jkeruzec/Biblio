@@ -1,5 +1,5 @@
 <?php
-namespace Biblio\Model;
+namespace BiblioModule\Model;
 
 class Biblio {
 	

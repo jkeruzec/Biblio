@@ -2,7 +2,7 @@
 
 require '../../../bin/php/php5.3.13/vendor/autoload.php';
 require 'autoloadProject.php';
-use Tech\DocumentMapper;
+use BiblioModule\Tech\DocumentMapper;
 //use Models\Po\UserPO;
 
 // Récupération DocumentMapper

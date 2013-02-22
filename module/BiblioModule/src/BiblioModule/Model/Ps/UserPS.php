@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Models\Ps;
+namespace BiblioModule\Model\Ps;
 
 class UserPS {
 

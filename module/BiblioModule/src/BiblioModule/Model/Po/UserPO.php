@@ -1,6 +1,6 @@
 <?php
 
-namespace Models\Po;
+namespace BiblioModule\Model\Po;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 

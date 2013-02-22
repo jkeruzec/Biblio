@@ -2,7 +2,7 @@
 namespace BiblioTest\Controller;
 
 use BiblioTest\Bootstrap;
-use Biblio\Controller\BiblioController;
+use BiblioModule\Controller\BiblioController;
 use Zend\Http\Request;
 use Zend\Http\Response;
 use Zend\Mvc\MvcEvent;
@@ -37,10 +37,8 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 	public function testAddActionCanBeAccessed()
 	{
 		$this->routeMatch->setParam('action', 'add');
-
 		$result   = $this->controller->dispatch($this->request);
 		$response = $this->controller->getResponse();
-
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 

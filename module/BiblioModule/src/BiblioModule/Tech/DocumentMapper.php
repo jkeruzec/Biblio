@@ -1,6 +1,6 @@
 <?php
 
-namespace Tech;
+namespace BiblioModule\Tech;
 
 use Doctrine\Common\ClassLoader;
 use Doctrine\MongoDB\Connection;

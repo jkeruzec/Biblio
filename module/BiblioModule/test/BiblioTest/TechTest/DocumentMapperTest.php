@@ -1,8 +1,6 @@
 <?php
 
-require '/../../../../bin/php/php5.3.13/vendor/autoload.php';
-require '/../../src/autoloadProject.php';
-use Tech\DocumentMapper;
+use BiblioModule\Tech\DocumentMapper;
 
 class DocumentMapperTest extends PHPUnit_Framework_TestCase {
 
