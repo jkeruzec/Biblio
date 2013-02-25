@@ -1,8 +1,8 @@
 <?php
 namespace BiblioModule;
 
-use Biblio\Model\BiblioTable;
-use Biblio\Model\Biblio;
+use BiblioModule\Model\BiblioTable;
+use BiblioModule\Model\Biblio;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Log\Logger;
@@ -47,14 +47,20 @@ class Module {
 							return $table;
 						},
 						'BiblioTableGateway' => function ($sm) {
+							try {
 							$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+							} catch (\Exception $e) {
+								do {
+									echo $e->getMessage();
+								} while ($e = $e->getPrevious());
+							}
 							$resultSetPrototype = new ResultSet();
 							$resultSetPrototype->setArrayObjectPrototype(new Biblio());
 							return new TableGateway('Biblio', $dbAdapter, null, $resultSetPrototype);
 						},
 						'Zend\Log' => function($sm) {
 							$log = new Logger();
-							$writer = new Stream('./../../../data/logs/logfile');
+							$writer = new Stream('php://output');
 							$log->addWriter($writer);
 							return $log;
 						},

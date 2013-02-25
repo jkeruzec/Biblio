@@ -43,7 +43,7 @@ class DocumentMapper {
 	/**
 	 * @assert() === getInstanceDocumentMapper()
 	 */
-	public function getInstanceDocumentMapper() {
+	public static function getInstanceDocumentMapper() {
 		if(!isset(self::$instance)) {
 			self::$instance = new DocumentMapper();
 		}

@@ -73,7 +73,7 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGetBiblioTableReturnsAnInstanceOfBiblioTable() {
-		$this->assertInstanceOf('Biblio\Model\BiblioTable', $this->controller->getBiblioTable());
+		$this->assertInstanceOf('BiblioModule\Model\BiblioTable', $this->controller->getBiblioTable());
 	}
 	
 	

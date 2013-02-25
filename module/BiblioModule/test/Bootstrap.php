@@ -1,5 +1,5 @@
 <?php
-namespace BiblioTest;//Change this namespace for your test
+namespace BiblioTest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;

@@ -30,8 +30,8 @@ class BiblioController extends AbstractActionController {
 		
 		if(!$this->BiblioTable) {
 			$sm = $this->getServiceLocator();
-			$this->Bibliotable = $sm->get('Biblio\Model\BiblioTable');
-			$this->getLog()->info($this->BiblioTable);
+			$this->BiblioTable = $sm->get('Biblio\Model\BiblioTable');
+			$this->getLog()->info($this->BiblioTable != null ? "OK" : "Appel Echoue");
 		}
 		
 		return $this->BiblioTable;
