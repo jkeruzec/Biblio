@@ -76,5 +76,9 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('BiblioModule\Model\BiblioTable', $this->controller->getBiblioTable());
 	}
 	
+	public function testBiblioControllerLogIsSingleton() {
+		$this->assertNotNull($this->controller->getLog());		
+	}
+	
 	
 }

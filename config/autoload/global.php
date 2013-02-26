@@ -25,4 +25,7 @@ return array(
                     => 'Zend\Db\Adapter\AdapterServiceFactory',
         ),
     ),
+	'mongoDB' => array (
+		'repository' => 'Biblio',
+	),
 );

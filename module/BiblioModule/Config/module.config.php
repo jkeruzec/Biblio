@@ -6,6 +6,11 @@ return array (
 						'Biblio\Controller\Index' => 'BiblioModule\Controller\IndexController',
 				),
 		),
+		'persistanceService' => array (
+				'invokables' => array (
+						'Biblio\Model\Ps\User' => 'BiblioModule\Model\Ps\UserPS',
+				),
+		),
 		'router' => array (
 				'routes' => array (
 						'home' => array(

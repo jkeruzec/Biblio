@@ -3,6 +3,11 @@ namespace BiblioModule;
 
 use BiblioModule\Model\BiblioTable;
 use BiblioModule\Model\Biblio;
+use BiblioModule\Tech\DocumentMapper;
+use Doctrine\ODM\MongoDB\Configuration;
+use Doctrine\MongoDB\Connection;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Log\Logger;
@@ -64,6 +69,21 @@ class Module {
 							$log->addWriter($writer);
 							return $log;
 						},
+						'DocumentMapperConfig' => function($sm) {
+							$config = new Configuration();
+							$config->setProxyDir('/proxies');
+							$config->setProxyNamespace('Proxies');
+							$config->setHydratorDir('/hydrators');
+							$config->setHydratorNamespace('Hydrators');
+							$config->setMetadataDriverImpl(AnnotationDriver::create('/classes'));
+							$configModule = $sm->get('Config');
+							$config->setDefaultDB($configModule['mongoDB']['repository']);
+							return $config;
+						},
+						'BiblioModule\Tech\DocumentMapper' => function($sm) {
+							return DocumentManager::create(new Connection(), $sm->get('DocumentMapperConfig'));
+						},
+								
 				),
 		);
 	}

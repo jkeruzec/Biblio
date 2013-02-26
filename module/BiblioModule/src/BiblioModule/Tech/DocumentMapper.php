@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
 
-class DocumentMapper {
+class DocumentMapper  {
 
 	/**
 	*	@var DocumentMapper
@@ -24,6 +24,8 @@ class DocumentMapper {
 	 * @var Configuration
 	 */	
 	private static $config;
+	
+	protected $serviceLocator;
 
 	private function __construct() {
 	
@@ -35,7 +37,6 @@ class DocumentMapper {
 		self::$config->setHydratorDir('/hydrators');
 		self::$config->setHydratorNamespace('Hydrators');
 		self::$config->setMetadataDriverImpl(AnnotationDriver::create('/classes'));
-
 		self::$dm = DocumentManager::create(new Connection(), self::$config);
 		
 	}
@@ -49,7 +50,6 @@ class DocumentMapper {
 		}
 		return self::$dm;
 	}
-	
 	
 
 }
