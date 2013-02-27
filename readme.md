@@ -33,7 +33,8 @@ Note de développement
 PHPUnit permet de mettre des dépendances entre les tests à l'aide de l'annotation @depends
 Dans l'exemple ci-dessous, le test "testMergeExistingUser" dépend de l'execution du test "testInsertSimlpeUserIntoBase". Le resultat de la dépendance est passé à l'appelant.
 Exemple :
-/**
+
+	/**
 	 * 
 	 * @return \BiblioModule\Model\Po\UserPO
 	 */
