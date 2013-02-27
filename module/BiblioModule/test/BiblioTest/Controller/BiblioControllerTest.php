@@ -12,12 +12,30 @@ use PHPUnit_Framework_TestCase;
 
 class BiblioControllerTest extends PHPUnit_Framework_TestCase
 {
+	/**
+	 * 
+	 * @var unknown
+	 */
 	protected $controller;
+	
+	/**
+	 * 
+	 * @var unknown
+	 */
 	protected $request;
+	
+	/**
+	 * 
+	 * @var unknown
+	 */
 	protected $response;
 	protected $routeMatch;
 	protected $event;
 
+	/**
+	 * (non-PHPdoc)
+	 * @see PHPUnit_Framework_TestCase::setUp()
+	 */
 	protected function setUp()
 	{
 		$serviceManager = Bootstrap::getServiceManager();
@@ -34,6 +52,9 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->controller->setServiceLocator($serviceManager);
 	}
 
+	/**
+	 * 
+	 */
 	public function testAddActionCanBeAccessed()
 	{
 		$this->routeMatch->setParam('action', 'add');
@@ -42,6 +63,9 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 
+	/**
+	 * 
+	 */
 	public function testDeleteActionCanBeAccessed()
 	{
 		$this->routeMatch->setParam('action', 'delete');
@@ -52,6 +76,9 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 
+	/**
+	 * 
+	 */
 	public function testEditActionCanBeAccessed()
 	{
 		$this->routeMatch->setParam('action', 'edit');
@@ -62,6 +89,9 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 
+	/**
+	 * 
+	 */
 	public function testIndexActionCanBeAccessed()
 	{
 		$this->routeMatch->setParam('action', 'index');
@@ -72,10 +102,16 @@ class BiblioControllerTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 	
+	/**
+	 * 
+	 */
 	public function testGetBiblioTableReturnsAnInstanceOfBiblioTable() {
 		$this->assertInstanceOf('BiblioModule\Model\BiblioTable', $this->controller->getBiblioTable());
 	}
 	
+	/**
+	 * 
+	 */
 	public function testBiblioControllerLogIsSingleton() {
 		$this->assertNotNull($this->controller->getLog());		
 	}

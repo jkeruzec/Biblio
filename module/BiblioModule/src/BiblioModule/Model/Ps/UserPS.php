@@ -2,24 +2,21 @@
 
 namespace BiblioModule\Model\Ps;
 
-
-use Zend\ServiceManager\InitializerInterface;
-
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use BiblioModule\Model\Po\UserPO;
+use BiblioModule\Model\Ps\CrudEntityPS;
 
-class UserPS implements InitializerInterface {
+/**
+ * 
+ * @author julien.keruzec
+ *
+ */
+class UserPS extends CrudEntityPS  {
 
-	protected $services;
-
-	public function initialize($instance, ServiceLocatorInterface $serviceLocator)
-	{
-		$services = $serviceLocator;
+	public function findAll() {
+		
 	}
 	
-	public function getServiceLocator() {
-		$this->services;
+	public function findByNom() {
 		
 	}
 
