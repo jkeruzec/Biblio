@@ -45,7 +45,7 @@ class UserPSTest extends PHPUnit_Framework_TestCase {
 	
 	/**
 	 * @depends testInsertSimlpeUserIntoBase
-	 * @param unknown $user1
+	 * @param UserPO $user1
 	 */
 	public function testMergeExistingUser($user1) {
 		$userPS = $this->getUserPS();
