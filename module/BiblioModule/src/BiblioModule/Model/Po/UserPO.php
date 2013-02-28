@@ -63,6 +63,14 @@ class UserPO {
 	
 	/**
 	 * 
+	 * @return number
+	 */
+	public function getId() {
+		return $this->id;
+	}
+	
+	/**
+	 * 
 	 * @return string
 	 */
 	public function __toString() {

@@ -5,6 +5,7 @@
 	<buildpathentry kind="lib" path="vendor/zendframework/zendframework/library/Zend"/>
 	<buildpathentry kind="src" path="module/BiblioModule/test"/>
 	<buildpathentry kind="lib" path="vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB"/>
+	<buildpathentry kind="lib" path="vendor/doctrine/common/lib/Doctrine/Common"/>
 	<buildpathentry kind="src" path="module/BiblioModule/src"/>
 	<buildpathentry kind="lib" path="vendor/phpunit/phpunit/PHPUnit"/>
 </buildpath>

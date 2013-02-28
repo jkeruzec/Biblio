@@ -32,7 +32,7 @@ class ServiceHandler implements ServiceLocatorAwareInterface {
 	}
 	
 	/**
-	 * 
+	 * @return DocumentManager
 	 */
 	protected function getDocumentManager() {
 		return $this->service_manager->get('BiblioModule\Tech\DocumentMapper');

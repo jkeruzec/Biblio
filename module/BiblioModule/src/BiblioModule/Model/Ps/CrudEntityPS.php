@@ -13,7 +13,7 @@ class CrudEntityPS extends ServiceHandler {
 	
 	/**
 	 * 
-	 * @param unknown $entity
+	 * @param object $entity
 	 */
 	public function create($entity) {
 		$this->getDocumentManager()->persist($entity);	
@@ -21,7 +21,7 @@ class CrudEntityPS extends ServiceHandler {
 	
 	/**
 	 * 
-	 * @param unknown $entity
+	 * @param object $entity
 	 */
 	public function remove($entity) {
 		$this->getDocumentManager()->remove($entity);
@@ -29,7 +29,7 @@ class CrudEntityPS extends ServiceHandler {
 	
 	/**
 	 * 
-	 * @param unknown $entity
+	 * @param object $entity
 	 */
 	public function detach($entity) {
 		$this->getDocumentManager()->detach($entity);
@@ -37,7 +37,7 @@ class CrudEntityPS extends ServiceHandler {
 	
 	/**
 	 * 
-	 * @param unknown $detachedEntity
+	 * @param object $detachedEntity
 	 */
 	public function merge($detachedEntity) {
 		$this->getDocumentManager()->merge($detachedEntity);
@@ -49,6 +49,16 @@ class CrudEntityPS extends ServiceHandler {
 	 */
 	public function commit($entity = null) {
 		$this->getDocumentManager()->flush($entity);
+	}
+	
+	/**
+	 * 
+	 * @param object $entity
+	 * @param int $id
+	 * @return object entity
+	 */
+	public function findByID($entity, $id) {
+		return $this->getDocumentManager()->find($entity, $id);
 	}
 	
 	
