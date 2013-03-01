@@ -37,10 +37,11 @@ class CrudEntityPS extends ServiceHandler {
 	
 	/**
 	 * 
-	 * @param object $detachedEntity
+	 * @param unknown $detachedEntity
+	 * @return object merged
 	 */
 	public function merge($detachedEntity) {
-		$this->getDocumentManager()->merge($detachedEntity);
+		return $this->getDocumentManager()->merge($detachedEntity);
 	}
 	
 	/**

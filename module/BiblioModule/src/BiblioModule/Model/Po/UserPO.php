@@ -3,11 +3,12 @@
 namespace BiblioModule\Model\Po;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use BiblioModule\Model\Po\basePO;
 
 /**
 @ODM\Document(collection="User")
 */
-class UserPO {
+class UserPO extends basePO{
 
 	/** @ODM\Id */
 	protected $id;
@@ -67,6 +68,22 @@ class UserPO {
 	 */
 	public function getId() {
 		return $this->id;
+	}
+	
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getPrenom() {
+		return $this->prenom;
+	}
+	
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getNom() {
+		return $this->nom;
 	}
 	
 	/**
