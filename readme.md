@@ -27,6 +27,11 @@ Configurer MakeGood dans votre projet Eclipse en lui spécifiant :
  
 Les tests unitaires se lancent alors à tous les enregistrements du projet (configuration possible). La vue MakeGood permet de suivre l'évolution des tests.
 
+Utilisation des plugins Eclipse :
+ - PDT Extension pour génération code PHP
+ - MakeGood pour test unitaire
+ - MonjaDB pour exploration database ou MongoVUE en programme externe
+
 Note de développement
 ---------------------
 
