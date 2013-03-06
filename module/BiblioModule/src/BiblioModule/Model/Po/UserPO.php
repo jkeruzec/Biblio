@@ -7,29 +7,33 @@ use BiblioModule\Model\Po\basePO;
 
 /**
 @ODM\Document(collection="User")
-*/
-class UserPO extends basePO{
+@ODM\UniqueIndex(keys={"nom"="asc", "mail"="asc"})
+ */
+class UserPO extends basePO {
 
 	/** @ODM\Id */
 	protected $id;
-	
-	/** @ODM\String") */
+
+	/** @ODM\String */
 	protected $nom;
-	
+
 	/** @ODM\String */
 	protected $prenom;
-	
+
 	/** @ODM\String */
 	protected $mail;
-	
+
+	/** @ODM\String */
+	protected $motDePasse;
+
 	/**
 	 * 
 	 * @param number $id
 	 */
-	public function __construct($id=0) {
+	public function __construct($id = 0) {
 		$this->id = $id;
 	}
-	
+
 	/**
 	 * 
 	 * @param string $id
@@ -37,7 +41,7 @@ class UserPO extends basePO{
 	public function setId($id) {
 		$this->id = $id;
 	}
-	
+
 	/**
 	 * 
 	 * @param string $nom
@@ -45,7 +49,7 @@ class UserPO extends basePO{
 	public function setNom($nom) {
 		$this->nom = $nom;
 	}
-	
+
 	/**
 	 * 
 	 * @param string $prenom
@@ -53,7 +57,7 @@ class UserPO extends basePO{
 	public function setPrenom($prenom) {
 		$this->prenom = $prenom;
 	}
-	
+
 	/**
 	 * 
 	 * @param string $mail
@@ -61,7 +65,7 @@ class UserPO extends basePO{
 	public function setMail($mail) {
 		$this->mail = $mail;
 	}
-	
+
 	/**
 	 * 
 	 * @return number
@@ -69,7 +73,7 @@ class UserPO extends basePO{
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	/**
 	 * 
 	 * @return string
@@ -77,7 +81,7 @@ class UserPO extends basePO{
 	public function getPrenom() {
 		return $this->prenom;
 	}
-	
+
 	/**
 	 * 
 	 * @return string
@@ -85,7 +89,7 @@ class UserPO extends basePO{
 	public function getNom() {
 		return $this->nom;
 	}
-	
+
 	/**
 	 * 
 	 * @return string
@@ -93,5 +97,28 @@ class UserPO extends basePO{
 	public function __toString() {
 		return $this->id . ' ' . $this->nom;
 	}
-	
+
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getMail() {
+		return $this->mail;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMotDePasse() {
+		return $this->motDePasse;
+	}
+
+	/**
+	 * 
+	 * @param string $motDePasse
+	 */
+	public function setMotDePasse($motDePasse) {
+		$this->motDePasse = md5($motDePasse);
+	}
+
 }

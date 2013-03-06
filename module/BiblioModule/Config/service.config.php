@@ -12,6 +12,8 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Log\Logger;
 use Zend\Log\Writer\Stream;
+use BiblioModule\Form\UserAuthSession;
+use Zend\Authentication\AuthenticationService;
 
 return array(
 		'factories' => array(
@@ -55,6 +57,15 @@ return array(
 				},
 				'BiblioModule\Tech\UserPS' => function($sm) {
 					return new UserPS();
+				},
+				'BiblioModule\Form\UserAuthSession' => function($sm) {
+					return new UserAuthSession('BiblioModuleLogin');
+				},
+				'AuthService' => function($sm) {
+					$authService = new AuthenticationService();
+					$authService->setStorage($sm->get('BiblioModule\Form\UserAuthSession'));
+					$authService->setAdapter($adapter);
+					
 				},
 		),
 );

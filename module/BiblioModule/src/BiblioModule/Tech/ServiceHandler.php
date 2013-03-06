@@ -4,6 +4,7 @@ namespace BiblioModule\Tech;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Doctrine\ODM\MongoDB\DocumentManager;
 
 class ServiceHandler implements ServiceLocatorAwareInterface {
 	

@@ -19,6 +19,18 @@ class UserPS extends CrudEntityPS  {
 	public function findByNom() {
 		
 	}
+	
+	/**
+	 * 
+	 * @param UserPO $user
+	 * @return Doctrine\ODM\MongoDB\Cursor
+	 */
+	public function findByNomAndPassword(UserPO $user) {
+		return $this->
+				getDocumentManager()->
+				getRepository($user->getRepositoryName())->
+				findBy(array('nom' => $user->getNom(), 'motDePasse' => $user->getMotDePasse()));
+	}
 
 
 

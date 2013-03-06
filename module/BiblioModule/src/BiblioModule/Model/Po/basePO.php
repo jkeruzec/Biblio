@@ -14,7 +14,7 @@ class basePO {
 	 * Utilise la reflection pour retourner le nom de la classe
 	 * @return string nom de la classe
 	 */
-	public function getName() {
+	public function getRepositoryName() {
 		$reflection = new \ReflectionClass($this);
 		return $reflection->getName();
 	}
