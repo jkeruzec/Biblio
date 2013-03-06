@@ -85,6 +85,7 @@ class UserPSTest extends PHPUnit_Framework_TestCase {
 	
 	/**
 	 * Retrouve un utilisateur par son nom et mot de passe hashé MD5 simple
+	 * Test si le user exists
 	 */
 	public function testFindUserWithNomAndMotDePasse() {
 		
@@ -96,6 +97,7 @@ class UserPSTest extends PHPUnit_Framework_TestCase {
 		$user->setNom("Keru");
 		$user->setMotDePasse("password");
 		
+		// On cherche l'utilisateur
 		$cursor = $userPS->findByNomAndPassword($user);
 		
 		$nbResult = 0;
@@ -108,8 +110,9 @@ class UserPSTest extends PHPUnit_Framework_TestCase {
 		
 		$this->assertNotEquals($nbResult, 0);
 		
+		$this->assertTrue($userPS->userExists($user));
+		
 	}
-	
 	
 	
 	/**

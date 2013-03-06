@@ -1,8 +1,9 @@
 <?php
+namespace BiblioTest\Tech;
 
 use BiblioModule\Tech\DocumentMapper;
 use BiblioTest\Bootstrap;
-
+use PHPUnit_Framework_TestCase;
 /**
  * 
  * @author julien.keruzec

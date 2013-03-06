@@ -14,6 +14,7 @@ use Zend\Log\Logger;
 use Zend\Log\Writer\Stream;
 use BiblioModule\Form\UserAuthSession;
 use Zend\Authentication\AuthenticationService;
+use BiblioModule\Tech\DoctrineAuthAdapter;
 
 return array(
 		'factories' => array(
@@ -62,10 +63,11 @@ return array(
 					return new UserAuthSession('BiblioModuleLogin');
 				},
 				'AuthService' => function($sm) {
+					$adapter = new DoctrineAuthAdapter();
 					$authService = new AuthenticationService();
 					$authService->setStorage($sm->get('BiblioModule\Form\UserAuthSession'));
 					$authService->setAdapter($adapter);
-					
+					return $authService;
 				},
 		),
 );

@@ -62,5 +62,14 @@ class CrudEntityPS extends ServiceHandler {
 		return $this->getDocumentManager()->find($entity, $id);
 	}
 	
+	/**
+	 * 
+	 * @param object $entity
+	 * @return Doctrine\ODM\MongoDB\Cursor
+	 */
+	public function findAll($entity) {
+		return $this->getDocumentManager()->find($entity);
+	}
+	
 	
 }

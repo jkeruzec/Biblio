@@ -4,6 +4,7 @@
     <testsuites>
         <testsuite name="biblioApp">
             <directory>./BiblioTest</directory>
+            <exclude>./BiblioTest/TechTest/BaseTest.php</exclude>
         </testsuite>
     </testsuites>
 </phpunit>
