@@ -17,6 +17,20 @@ return array (
 												'action' => 'index',
 										),
 								),
+								'may_terminate' => true,
+								'child_routes' => array(
+										'process' => array(
+												'type' => 'segment',
+												'options' => array(
+														'route' => '[:action]',
+														'constraints' => array (
+																'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+														),
+														'defaults' => array (
+														),
+												),
+										),
+								),
 						),
 						'Biblio' => array (
 								'type' => 'segment',

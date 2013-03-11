@@ -3,7 +3,6 @@
 namespace BiblioTest\Tech;
 
 use BiblioModule\Model\Po\UserPO;
-use Zend\Authentication\AuthenticationService;
 
 class DoctrineAuthAdapterTest extends BaseTest {
 		
@@ -16,11 +15,12 @@ class DoctrineAuthAdapterTest extends BaseTest {
 		$authService->getAdapter()->setUserPs($this->getUserPS());
 		
 		$result = $authService->authenticate();
-		
+
 		$this->assertTrue($result->isValid());
-		
-		$authService->getStorage()->
-		
+
+		foreach ($result->getMessages() as $message) {
+			$this->getLog()->debug($message);
+		}
 		
 		$authService->getAdapter()->setIdentity('Keru');
 		$authService->getAdapter()->setCredential('a');
@@ -30,6 +30,9 @@ class DoctrineAuthAdapterTest extends BaseTest {
 		
 		$this->assertTrue(!$result->isValid());
 		
+		foreach ($result->getMessages() as $message) {
+			$this->getLog()->debug($message);
+		}
 		
 	}
 	

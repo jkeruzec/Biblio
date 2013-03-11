@@ -4,12 +4,17 @@ namespace BiblioTest\Tech;
 
 use PHPUnit_Framework_TestCase;
 use BiblioTest\Bootstrap;
+use Zend\Authentication\AuthenticationService;
+use Zend\Log\Logger;
+use Zend\ServiceManager\ServiceManager;
+use BiblioModule\Model\Ps\UserPs;
+use Doctrine\ODM\MongoDB\DocumentManager;
 
 class BaseTest extends PHPUnit_Framework_TestCase {
 	
 	/**
 	 *
-	 * @var unknown
+	 * @var ServiceManager
 	 */
 	protected $serviceManager;
 	
@@ -24,7 +29,7 @@ class BaseTest extends PHPUnit_Framework_TestCase {
 	
 	/**
 	 *
-	 * @return Zend\Authentication\AuthenticationService
+	 * @return AuthenticationService
 	 */
 	protected function getAuthService() {
 		return $this->serviceManager->get('AuthService');
@@ -38,6 +43,20 @@ class BaseTest extends PHPUnit_Framework_TestCase {
 		return $this->serviceManager->get('BiblioModule\Tech\UserPS');
 	}
 	
+	/**
+	 * @return DocumentManager
+	 */
+	protected function getDocumentMapper() {
+		// Récupération DocumentMapper
+		return $this->serviceManager->get('BiblioModule\Tech\DocumentMapper');
+	}
+	
+	/**
+	 * @return Logger
+	 */
+	protected function getLog() {
+		return $this->serviceManager->get('Zend\Log');
+	}
 
 	/**
 	 * 
@@ -45,6 +64,5 @@ class BaseTest extends PHPUnit_Framework_TestCase {
 	public function testServiceManagerLoaded() {
 		$this->assertNotNull($this->serviceManager);
 	}
-	
 	
 }

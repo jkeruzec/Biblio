@@ -1,11 +1,9 @@
 <?php
 namespace BiblioModule\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-
-class BiblioController extends AbstractActionController {
+class BiblioController extends BaseController {
 	
 	protected $BiblioTable;
 	protected static $log;
@@ -36,10 +34,6 @@ class BiblioController extends AbstractActionController {
 		
 		return $this->BiblioTable;
 		
-	}
-	
-	public function getLog() {
-		return $this->getServiceLocator()->get('Zend\Log');		
 	}
 	
 

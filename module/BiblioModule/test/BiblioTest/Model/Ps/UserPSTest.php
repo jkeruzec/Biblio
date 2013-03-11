@@ -7,29 +7,14 @@ use BiblioTest\Bootstrap;
 use Doctrine\Common\Annotations\AnnotationReader;
 use PHPUnit_Framework_TestCase;
 use BiblioModule\Model\Ps\UserPS;
-
+use BiblioTest\Tech\BaseTest;
 
 /**
  * Classe de test de la couche persistence service pour l'entité User
  * @author julien.keruzec
  *
  */
-class UserPSTest extends PHPUnit_Framework_TestCase {
-	
-	/**
-	 * 
-	 * @var Zend\ServiceManager\ServiceManager
-	 */
-	protected $serviceManager;
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see PHPUnit_Framework_TestCase::setUp()
-	 */
-	protected function setUp()
-	{
-		$this->serviceManager = Bootstrap::getServiceManager();
-	}
+class UserPSTest extends BaseTest {
 	
 	/**
 	 * 
@@ -112,15 +97,6 @@ class UserPSTest extends PHPUnit_Framework_TestCase {
 		
 		$this->assertTrue($userPS->userExists($user));
 		
-	}
-	
-	
-	/**
-	 * 
-	 * @return UserPS
-	 */
-	private function getUserPS() {
-		return $this->serviceManager->get('BiblioModule\Tech\UserPS');
 	}
 	
 }

@@ -7,7 +7,6 @@ use BiblioModule\Model\Po\basePO;
 
 /**
 @ODM\Document(collection="User")
-@ODM\UniqueIndex(keys={"nom"="asc", "mail"="asc"})
  */
 class UserPO extends basePO {
 

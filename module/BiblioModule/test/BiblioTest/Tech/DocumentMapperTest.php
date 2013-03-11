@@ -1,30 +1,14 @@
 <?php
 namespace BiblioTest\Tech;
 
-use BiblioModule\Tech\DocumentMapper;
-use BiblioTest\Bootstrap;
-use PHPUnit_Framework_TestCase;
+
 /**
  * 
  * @author julien.keruzec
  *
  */
-class DocumentMapperTest extends PHPUnit_Framework_TestCase {
+class DocumentMapperTest extends BaseTest {
 
-	/**
-	 * 
-	 * @var unknown
-	 */
-	protected $serviceManager;
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see PHPUnit_Framework_TestCase::setUp()
-	 */
-	protected function setUp()
-	{
-		$this->serviceManager = Bootstrap::getServiceManager();
-	}
 	
 	/**
 	 * 
@@ -44,6 +28,14 @@ class DocumentMapperTest extends PHPUnit_Framework_TestCase {
 		$dm2 = $this->serviceManager->get('BiblioModule\Tech\DocumentMapper');
 		
 		$this->assertSame($dm1, $dm2);
+	}
+	
+	
+	public function testThatMongoDBConnectionIsReady() {
+		$dm = $this->getDocumentMapper();
+		$connection = $dm->getConnection();
+		$this->assertNotNull($connection);
+		$this->assertTrue($connection->isConnected());
 	}
 
 }
