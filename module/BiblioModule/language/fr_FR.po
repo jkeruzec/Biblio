@@ -151,3 +151,9 @@ msgstr "résout en %s"
 msgid "Exception"
 msgstr "Exception"
 
+
+
+#: Message Biblio
+msgid "UtilisateurConnecte"
+msgstr "Utilisateur connecté:"
+

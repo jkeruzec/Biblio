@@ -9,6 +9,7 @@ use Zend\Form\Element;
  * Formulaire d'authentification des utilisateurs
  * @Annotation\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
  * @Annotation\Name("UserForm")
+ * @Annotation\Attributes({"class": "form-inline"})
  * @author julien.keruzec
  *
  */ 
@@ -22,22 +23,19 @@ class UserForm {
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":25}})
      * @Annotation\Validator({"name":"Regex", "options":{"pattern":"/^[a-zA-Z][a-zA-Z0-9_-]{0,24}$/"}})
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"Username:"})
+     * @Annotation\Attributes({"type":"text", "class"="input-small", "placeholder"="Nom d'utilisateur"})
      */
     public $username;
 
     /**
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":25}})
-     * @Annotation\Attributes({"type":"password"})
-     * @Annotation\Options({"label":"Mot de passe:"})
+     * @Annotation\Attributes({"type":"password", "class"="input-small", "placeholder"="Mot de passe"})
      */
     public $password;
 
     /**
-     * @Annotation\Attributes({"type":"Submit"})
-     * @Annotation\Attributes({"value":"Se connecter"})
+     * @Annotation\Attributes({"type":"Submit", "class"="btn", "value":"Se connecter"})
      */
     public $submit;
 

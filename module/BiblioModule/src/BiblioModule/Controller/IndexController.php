@@ -47,6 +47,12 @@ class IndexController extends AbstractActionController
 		                       'utilisateurConnecte' => $userConnecte
 		);
 		
+		$layout = $this->layout();
+		$layout->setVariable('utilisateurConnecte', $userConnecte);
+		
+		
+		
+		
 		return $pageComponent;
 	}
 	
