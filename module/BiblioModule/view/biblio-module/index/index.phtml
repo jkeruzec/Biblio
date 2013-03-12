@@ -1,4 +1,9 @@
 <?php 
+
+if($this->utilisateurConnecte) {
+    echo $this->utilisateurConnecte;
+}
+
 $form = $this->form;
 $form->setAttribute('action', $this->url(
     'home/process',

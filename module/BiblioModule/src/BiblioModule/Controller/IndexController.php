@@ -36,8 +36,16 @@ class IndexController extends AbstractActionController
 	
 	public function indexAction()
 	{	
+	    $userConnecte = null;
 	    
-		$pageComponent = array('form' => $this->getLoginForm(), 'messages' => $this->flashMessenger()->getMessages());
+	    if($this->getServiceLocator()->get('AuthService')->hasIdentity()) {
+	        $userConnecte = $this->getServiceLocator()->get('AuthService')->getStorage()->read();
+	    }
+	    
+		$pageComponent = array('form' => $this->getLoginForm(), 
+		                       'messages' => $this->flashMessenger()->getMessages(),
+		                       'utilisateurConnecte' => $userConnecte
+		);
 		
 		return $pageComponent;
 	}
