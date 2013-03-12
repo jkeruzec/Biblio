@@ -21,7 +21,7 @@ class IndexController extends AbstractActionController
 	
 	/**
 	 * 
-	 * @return Ambigous <\Zend\Form\Form, \Zend\Form\ElementInterface, ElementInterface, \Zend\Form\FormInterface, \Zend\Form\FieldsetInterface>
+	 * @return UserForm
 	 */
 	public function getLoginForm() {
 		
@@ -35,8 +35,8 @@ class IndexController extends AbstractActionController
 	}
 	
 	public function indexAction()
-	{
-		
+	{	
+	    
 		$pageComponent = array('form' => $this->getLoginForm(), 'messages' => $this->flashMessenger()->getMessages());
 		
 		return $pageComponent;
@@ -46,12 +46,49 @@ class IndexController extends AbstractActionController
 		
 		$form = $this->getLoginForm();
 		$request = $this->getRequest();
+		$redirect = 'home';
 		
+		// Vérification du post du formulaire
 		if($request->isPost()) {
+		    
 			$form->setData($request->getPost());
+			
 			if($form->isValid()) {
+			    
+			    // Récupération des champs du formulaire
+			    $username = $form->get(UserForm::_FIELD_USERNAME)->getValue();
+			    $motDePasse = $form->get(UserForm::_FIELD_PASSWORD)->getValue();
+			    
+			    $authService = $this->getServiceLocator()->get('AuthService');
+			    
+			    $authService->getAdapter()->setIdentity($username);
+			    $authService->getAdapter()->setCredential($motDePasse);
+			    $authService->getAdapter()->setUserPs($this->getServiceLocator()->get('BiblioModule\Tech\UserPS'));
+			    
+			    // Authentification de l'utilisateur
+			    $result = $authService->authenticate();
+			    
+			    foreach ($result->getMessages() as $message) {
+			        $this->flashMessenger()->addMessage($message);
+			    }
+			    
+			    if($result->isValid()) {
+			        $redirect = 'accueil';
+			        $authService->getStorage()->write($username);
+			    }
+			    
+			}
+			else {
+			    foreach($form->getElements() as $element) {
+			        foreach($element->getMessages() as $message) {
+			            $this->flashMessenger()->addMessage($element->getName() . ' ' . $message);
+			        }
+			    }   
+			        
 			}
 		}
+		
+		return $this->redirect()->toRoute($redirect);
 		
 	}
 }

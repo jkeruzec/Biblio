@@ -3,6 +3,7 @@
 namespace BiblioModule\Form;
 
 use Zend\Form\Annotation;
+use Zend\Form\Element;
 
 /**
  * Formulaire d'authentification des utilisateurs
@@ -13,6 +14,10 @@ use Zend\Form\Annotation;
  */ 
 class UserForm {
 
+     const _FIELD_USERNAME = 'username';
+     const _FIELD_PASSWORD = 'password';
+     const _FIELD_SUBMIT = 'submit';
+    
     /**
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":25}})
@@ -31,15 +36,10 @@ class UserForm {
     public $password;
 
     /**
-     * @Annotation\Attributes({"type":"Checkbox"})
-     * @Annotation\Options({"label":"Rester connecter:"})
-     */
-    public $rememberMe;
-
-    /**
      * @Annotation\Attributes({"type":"Submit"})
      * @Annotation\Attributes({"value":"Se connecter"})
      */
     public $submit;
+
 
 }

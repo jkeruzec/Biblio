@@ -59,6 +59,7 @@ class UserPSTest extends BaseTest {
 		$user1 = $userPS->merge($user1);
 		$userPS->commit($user1);
 		
+		
 		// Validation de l'update
 		$userFound = $userPS->findByID($user1->getRepositoryName(), $user1->getId());
 		
